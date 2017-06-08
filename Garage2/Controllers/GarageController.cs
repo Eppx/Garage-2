@@ -81,10 +81,7 @@ namespace Garage2.Controllers
             //    garage = garage.Where(v => v.Color == Selecttype);
             //}
         }
-        public total()
-        {
-
-        }
+        
         // GET: Vehicle/Details/5
         public ActionResult Detaljvy(int id)
         {
