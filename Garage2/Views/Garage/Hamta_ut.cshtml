@@ -1,7 +1,7 @@
 ﻿@model Garage2.Models.Garage
 
 @{
-    
+   
 }
 
 <!DOCTYPE html>
@@ -9,37 +9,46 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
+    <title>Hämta ut</title>
 </head>
 <body>
+   
     <div>
-        <h4>Parkerade Fordon Detaljvy</h4>
+        <h4>Garage</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.RegNr)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.RegNr)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Color)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Color)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Brand)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Brand)
             </dd>
-    
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NumberOfWheels)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NumberOfWheels)
+            </dd>
+
             <dt>
                 @Html.DisplayNameFor(model => model.Type)
             </dt>
@@ -49,27 +58,42 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.NumberOfWheels)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.NumberOfWheels)
-            </dd>
-    
-
-            <dt>
                 @Html.DisplayNameFor(model => model.Parkerad)
             </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.Parkerad)
             </dd>
-    
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalParkedTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalParkedTime) Min
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price) Kr
+            </dd>
+
         </dl>
+
+        <div class="form-horizontal">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div>
+                <input type="submit" value="Hämta ut" class="btn btn-danger" />
+                <a class="btn btn-primary" href="@Url.Action("Index", "Garage")">Översikt &raquo;</a>
+            </div>
+        }
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Tillbaka till garaget", "Index")
-    </p>
+    </div>
 </body>
 </html>

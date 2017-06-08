@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+    <link href="~/Content/garage.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -22,7 +23,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Hem", "Index", "Home")</li>
                     <li>@Html.ActionLink("Parkerade Fordon", "Index", "Garage")</li>
-                    <li>@Html.ActionLink("Parkera", "Create", "Garage")</li>
+                    <li>@Html.ActionLink("Parkera", "Parkera", "Garage")</li>
                 </ul>
             </div>
         </div>

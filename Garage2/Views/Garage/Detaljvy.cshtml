@@ -1,7 +1,7 @@
 ﻿@model Garage2.Models.Garage
 
 @{
-   
+    
 }
 
 <!DOCTYPE html>
@@ -9,12 +9,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
+    <title>Detaljvy</title>
 </head>
 <body>
-   
     <div>
-        <h4>Garage</h4>
+        <h4>Parkerade Fordon Detaljvy</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -42,6 +41,14 @@
             </dd>
     
             <dt>
+                @Html.DisplayNameFor(model => model.Type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Type)
+            </dd>
+
+            <dt>
                 @Html.DisplayNameFor(model => model.NumberOfWheels)
             </dt>
     
@@ -49,48 +56,20 @@
                 @Html.DisplayFor(model => model.NumberOfWheels)
             </dd>
     
-            <dt>
-                @Html.DisplayNameFor(model => model.Type)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Type)
-            </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Parkerad)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Parkerad)
             </dd>
     
-            <dt>
-                @Html.DisplayNameFor(model => model.TotalParkedTime)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.TotalParkedTime) Min
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Price) 
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Price) Kr
-            </dd>
-    
         </dl>
-    
-        @using (Html.BeginForm()) {
-            @Html.AntiForgeryToken()
-    
-            <div class="form-actions no-color">
-                <input type="submit" value="Hämta ut" class="btn btn-default" /> |
-                @Html.ActionLink("Tillbaka till garaget", "Index")
-            </div>
-        }
     </div>
+    
+        
+    <p><a class="btn btn-primary" href="@Url.Action("Index", "Garage")">Översikt &raquo;</a></p>
+    
 </body>
 </html>

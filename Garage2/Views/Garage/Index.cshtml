@@ -3,6 +3,7 @@
 @{
 
 }
+@using Garage2.Models
 
 <!DOCTYPE html>
 
@@ -13,14 +14,25 @@
 </head>
 <body>
     <h2>Parkerade Fordon</h2>
-    <p>
-            @Html.ActionLink("Parkera Fordon", "Create")
-        </p>
-
-    <form method="get">
+    
+    <div class="form-horizontal">
+        @using(Html.BeginForm())
+        {
+            @Html.DropDownList("Selecttype",
+                 new SelectList(Enum.GetValues(typeof(Search))),
+                 "Select Type",
+                                new { @class = "form-control" })
+            
+                <input type="search" name="searchString" class="form-control" />
+                <input type="submit" value="Search" class="btn btn-primary"  id="searchSubmit"/>
+            
+        }
+    </div>
+    
+    @*<form method="get">
         <input type="search" name="searchString" />
         <input type="submit" value="Search" />
-    </form>
+    </form>*@
 
     <table class="table">
         <tr>
@@ -72,15 +84,17 @@
                 
                 <td>
                     @*@Html.ActionLink("Edit", "Edit", new { id = item.Id })*@ |
-                    @Html.ActionLink("Detaljvy", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Hämta ut", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Detaljvy", "Detaljvy", new { id = item.Id }) |
+                    @Html.ActionLink("Hämta ut", "Hamta_ut", new { id = item.Id })
                 </td>
             </tr>
         }
 
     </table>
 
-
+    
+    <a class="btn btn-primary" href="@Url.Action("Parkera", "garage")">Parkera &raquo;</a>
+    
 
 </body>
 </html>

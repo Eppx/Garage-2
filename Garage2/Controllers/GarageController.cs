@@ -14,23 +14,84 @@ namespace Garage2.Controllers
     {
         private GarageDB contextDB = new GarageDB();
 
-        // GET: Vehicle
-        public ActionResult Index(string searchString)
-        {
-            var garage = contextDB.Vehicles.OrderByDescending(v => v.RegNr)
-                                            .Where(v => searchString == null || v.RegNr.Contains(searchString))
-                                            .Take(5);
-                                            
-            return View(garage.ToList());
-        }
 
+
+        // GET: Vehicle
+        public ActionResult Index(string searchString, string Selecttype)
+        {
+            //var garage = contextDB.Vehicles.OrderByDescending(v => v.RegNr)
+            // .Where(v => searchString == null || v.RegNr.Contains(searchString));
+            var garage = from v in contextDB.Vehicles
+            select v;
+
+            switch (Selecttype)
+            {
+                case "Färg":
+                    //var Color = from u in contextDB.Vehicles
+                    //            where u.Color == searchString
+                    //            select u;
+                    //return View(Color);
+                    garage = garage.Where(v => v.Color == searchString);
+                    break;
+                case "RegNr":
+                    //var RegNr = from u in contextDB.Vehicles
+                    //            where u.RegNr.Contains(searchString)
+                    //            select u;
+                    //return View(RegNr);
+                    garage = garage.Where(v => v.RegNr.Contains(searchString));
+                    break;
+                case "FordonsTyp":
+                    //var Type = from u in contextDB.Vehicles
+                    //           where u.Type.ToString() == searchString
+                    //           select u;
+                    //return View(Type);
+                    garage = garage.Where(v => v.Type.ToString() == (searchString));
+                    break;
+                case "Märke":
+                    //var Brand = from u in contextDB.Vehicles
+                    //            where u.Brand == searchString
+                    //            select u;
+                    //return View(Brand);
+                    garage = garage.Where(v => v.Brand == searchString);
+                        break;
+                case "Antalhjul":
+                    //var NumberOfWheels = from u in contextDB.Vehicles
+                    //                     where u.NumberOfWheels.ToString() == searchString
+                    //                     select u;
+                    //return View(NumberOfWheels);
+                    garage = garage.Where(v => v.NumberOfWheels.ToString() == searchString);
+                    break;
+
+                case "Totaltantalhjul":
+                    break;
+                default:
+                    break;
+                    
+            }           
+
+            return View(garage.ToList());
+
+            //if (!string.IsNullOrEmpty(searchString))
+            //{
+            //    garage = garage.Where(v => v.RegNr.Contains(searchString));
+            //}
+
+            //if (!string.IsNullOrEmpty(Selecttype))
+            //{
+            //    garage = garage.Where(v => v.Color == Selecttype);
+            //}
+        }
+        public total()
+        {
+
+        }
         // GET: Vehicle/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Detaljvy(int id)
         {
             Garage vehicle = contextDB.Vehicles.Find(id);
             if(vehicle != null)
             {
-                return View("Details", vehicle);
+                return View("Detaljvy", vehicle);
             }
             else
             {
@@ -40,15 +101,15 @@ namespace Garage2.Controllers
         }
 
         // GET: Vehicle/Create
-        public ActionResult Create()
+        public ActionResult Parkera()
         {
             Garage newVehicle = new Garage();
-            return View("Create", newVehicle);
+            return View("Parkera", newVehicle);
         }
 
         // POST: Vehicle/Create
         [HttpPost]
-        public ActionResult Create(Garage newVehicle)
+        public ActionResult Parkera(Garage newVehicle)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +144,7 @@ namespace Garage2.Controllers
         }
 
         // GET: Vehicle/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Hamta_ut(int? id)
         {
             if (id == null)
             {
@@ -97,21 +158,22 @@ namespace Garage2.Controllers
 
             TimeSpan tidsskillnad = DateTime.Now.Subtract(contextDB.Vehicles.AsNoTracking().First(v => v.Id == delete.Id).Parkerad);
             delete.TotalParkedTime = Convert.ToInt32(tidsskillnad.TotalMinutes);
-            delete.Price = Convert.ToInt32(tidsskillnad.TotalMinutes) * 0.75f;
+            delete.Price = Convert.ToInt32(tidsskillnad.TotalMinutes) * 1.25f;
             
             return View(delete);
         }
 
         // POST: Operas/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Hamta_ut")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            
-           Garage delete = contextDB.Vehicles.Find(id);
+
+            Garage delete = contextDB.Vehicles.Find(id);
+            var vKvitto = new Receipt() {  };
             contextDB.Vehicles.Remove(delete);
             contextDB.SaveChanges();
-            return RedirectToAction("Index");
+            return View("Kvitto");
         }
 
         protected override void Dispose(bool disposing)
