@@ -31,3 +31,41 @@
 button, input, optgroup, select, textarea {
     margin-top: 1px;
 }
+
+#Park {
+    margin-left: 15px
+}
+
+body {
+    background-image: url('../Images/City2.jpg');
+    background-size: cover;
+    
+}
+
+#Oversikt{
+    background-color: white;
+    opacity: 0.8;
+}
+
+#Links{
+    color: blue;
+}
+
+footer{
+    color: white;
+    opacity: 0.8;
+}
+
+h2{
+    color: white;
+    opacity: 1;
+}
+
+h4{
+    color: white;    
+}
+
+label{
+    color: white;
+    opacity: 1;
+}

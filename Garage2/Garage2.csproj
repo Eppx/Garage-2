@@ -152,6 +152,10 @@
     <Compile Include="Migrations\201706020744305_init.Designer.cs">
       <DependentUpon>201706020744305_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706082127374_init1.cs" />
+    <Compile Include="Migrations\201706082127374_init1.Designer.cs">
+      <DependentUpon>201706082127374_init1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Garage.cs" />
     <Compile Include="Models\GarageDB.cs" />
@@ -179,6 +183,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Images\City.jpg" />
+    <Content Include="Images\City2.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -230,6 +236,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706020744305_init.resx">
       <DependentUpon>201706020744305_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706082127374_init1.resx">
+      <DependentUpon>201706082127374_init1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

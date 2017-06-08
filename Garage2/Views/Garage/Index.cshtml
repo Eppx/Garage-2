@@ -35,7 +35,7 @@
     </form>*@
     <p></p>
     <div class="table-responsive">
-        <table class="table">
+        <table id="Oversikt" class="table">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.RegNr)
@@ -83,7 +83,7 @@
                         </td>*@
 
 
-                    <td>
+                    <td id="Links">
                         @*@Html.ActionLink("Edit", "Edit", new { id = item.Id })*@ |
                         @Html.ActionLink("Detaljvy", "Detaljvy", new { id = item.Id }) |
                         @Html.ActionLink("Hämta ut", "Hamta_ut", new { id = item.Id })
