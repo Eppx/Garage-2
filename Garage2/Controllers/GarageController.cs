@@ -61,9 +61,7 @@ namespace Garage2.Controllers
                     //return View(NumberOfWheels);
                     garage = garage.Where(v => v.NumberOfWheels.ToString() == searchString);
                     break;
-
-                case "Totaltantalhjul":
-                    break;
+               
                 default:
                     break;
                     
@@ -165,9 +163,7 @@ namespace Garage2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-
             Garage delete = contextDB.Vehicles.Find(id);
-            var vKvitto = new Receipt() {  };
             contextDB.Vehicles.Remove(delete);
             contextDB.SaveChanges();
             return View("Kvitto");

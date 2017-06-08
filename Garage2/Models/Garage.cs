@@ -13,8 +13,10 @@ namespace Garage2.Models
         [Required]
         [MinLength(6)][MaxLength(6)]
         public string RegNr { get; set; }
+        [Required]
         [Display(Name ="Färg")]
         public string Color { get; set; }
+        [Required]
         [Display(Name = "Märke")]
         public string Brand { get; set; }
         [Display(Name = "Antal hjul")]        

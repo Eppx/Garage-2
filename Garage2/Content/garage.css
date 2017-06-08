@@ -18,5 +18,16 @@
 }
 
 #searchSubmit{
-    margin-bottom:2px
+    margin-bottom:3px
+}
+
+.table-responsive{
+    border-radius: 4px;   
+}
+.table-responsive > table > tr > th{
+    border-top: none;
+}
+
+button, input, optgroup, select, textarea {
+    margin-top: 1px;
 }
