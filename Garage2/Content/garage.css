@@ -38,8 +38,13 @@ button, input, optgroup, select, textarea {
 
 body {
     background-image: url('../Images/City2.jpg');
+    background-repeat: repeat-y;
     background-size: cover;
     
+}
+
+.body-content {
+    margin-top: 15px;
 }
 
 #Oversikt{
@@ -51,10 +56,6 @@ body {
     color: blue;
 }
 
-footer{
-    color: white;
-    opacity: 0.8;
-}
 
 h2{
     color: white;
@@ -68,4 +69,45 @@ h4{
 label{
     color: white;
     opacity: 1;
+}
+
+#Detaljvy{
+    color: white;
+}
+
+#jumbo{
+    opacity: 0.6;
+    margin-top: 30px;
+}
+
+.navbar-inverse {
+    background-color: rgba(255,255,255,0);
+    border-color: rgba(255,255,255,0);
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+
+
+.navbar-collapse[aria-expanded] {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.navbar-inverse .navbar-toggle,
+.navbar-inverse .navbar-toggle:focus:not(:hover) {
+    border: none;
+    background-color: rgba(0,0,0,0);
+}
+
+.navbar-header{
+    margin-bottom: 20px;
+}
+
+footer{
+    color: white;
 }
